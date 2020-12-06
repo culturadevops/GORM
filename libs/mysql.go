@@ -16,8 +16,14 @@ func (c *DbConfig) InitMysqlDB() *gorm.DB {
 		log.Panic(err)
 		os.Exit(-1)
 	}
-	db.SingularTable(true)                  //全局设置表名不可以为复数形式。
-	db.DB().SetMaxIdleConns(c.MaxIdleConns) //空闲时最大的连接数
-	db.DB().SetMaxOpenConns(c.MaxOpenConns) //最大的连接数
+	db.SingularTable(true)                 
+	db.DB().SetMaxIdleConns(c.MaxIdleConns)
+	db.DB().SetMaxOpenConns(c.MaxOpenConns) 
+
+	if c.print_log {
+		db.LogMode(true)
+	} else {
+		db.LogMode(false)
+	}
 	return db
 }
