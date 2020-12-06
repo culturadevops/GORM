@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/Recursos/ORM/libs"
+	"github.com/culturadevops/ORM/libs"
 	"github.com/jinzhu/gorm"
 )
 
